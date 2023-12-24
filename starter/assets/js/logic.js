@@ -11,12 +11,18 @@ function firstClick() {
 	var displayQuestions = document.getElementById("questions");
 	displayQuestions.setAttribute("class", "start");
 
-	// loadQuestion();
+	console.log("first click");
 	startTest();
 }
 
-// 06-01-09-ins-timer-intervals
 
+// // skip question
+	var skipButton = document.getElementById("skip").onclick = function () {
+		currentQuestionIndex = currentQuestionIndex++;
+	};
+
+	
+// 06-01-09-ins-timer-intervals
 var timeEl = document.getElementById("time");
 
 var secondsLeft = 75;
@@ -30,7 +36,9 @@ function startTest() {
 			endQuiz();
 		}
 	}, 1000);
-};
+	console.log("start test");
+	loadQuestion();
+}
 
 function endQuiz() {
 	timeEl.textContent = "";
@@ -38,4 +46,5 @@ function endQuiz() {
 	ending.setAttribute("class", "start");
 	var startScreen = document.getElementById("start-screen");
 	startScreen.setAttribute("class", "hide");
+	console.log("end quiz");
 }
