@@ -21,7 +21,7 @@ const questions = [
 		correctAnswer: "a) JavaScript is an Object-Based language",
 	},
 	{
-		question: "3. What is a variable?",
+		question: "3. Which is a variable?",
 		options: ["a) Digestives", "b) Kalakalash", "c) Falafel", "d) Tzatziki"],
 		correctAnswer: "a) Digestives",
 	},
@@ -31,29 +31,33 @@ let currentQuestionIndex = 0;
 
 function loadQuestion() {
 	const questionElement = document.getElementById("questions");
-	const optionsContainer = document.getElementById("choices");
 	const currentQuestion = questions[currentQuestionIndex];
-	const currentOptions = questions.options[currentQuestionIndex];
-
 	questionElement.textContent = currentQuestion.question;
+	console.log("Question Loaded");
+	loadChoices();
+}
 
-	// Clear previous options
-	optionsContainer.innerHTML = "";
-
-
+function loadChoices() {
+	let choicesElement = document.getElementById("choices");
+	const currentQuestion = questions[currentQuestionIndex];
+	choicesElement.innerHTML = "";
 	// Create and append new options
-	currentQuestion.options.forEach((option) => {
-		const optionElement = document.createElement("button");
-		optionElement.textContent = currentOptions;
-		optionElement.onclick = () => checkAnswer(option);
-		optionsContainer.appendChild(optionElement);
+	// currentQuestion.options.forEach((option) => {
+	// 	let optionElement = document.createElement("button");
+	// 	optionElement.textContent = option;
+	// 	choicesElement.appendChild(optionElement);
+		const answerOptions = questions.map((question) => question.options);
+		choicesElement.appendChild(answerOptions);
+		console.log(optionElement);
+	// }
+	// );
+	console.log("Choices Loaded");
+	displaySkipButton();
+}
 
-		// const answerOptions = questions.map((question) => question.options);
-		// optionsContainer.appendChild(answerOptions);
-
-		// console.log(currentQuestion.options);
-		console.log("Question Loaded");
-	});
+function displaySkipButton() {
+	const skipButton = document.getElementById("skip");
+	skipButton.setAttribute("class", "start");
 }
 
 function checkAnswer(selectedOption) {
