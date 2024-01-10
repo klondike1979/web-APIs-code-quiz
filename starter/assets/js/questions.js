@@ -58,6 +58,7 @@ function loadChoices() {
 function displaySkipButton() {
 	const skipButton = document.getElementById("skip");
 	skipButton.setAttribute("class", "start");
+	console.log("skip button loaded")
 }
 
 function checkAnswer(selectedOption) {
@@ -85,7 +86,7 @@ function checkAnswer(selectedOption) {
 
 function nextQuestion() {
 	var skipQuestion = document.getElementById("skip");
-	skipQuestion.textContent = "suck my chungus";
+	skipQuestion.textContent = "big chungus";
 	skipQuestion.onclick = function () {
 		loadQuestion();
 		console.log("Next Question");
